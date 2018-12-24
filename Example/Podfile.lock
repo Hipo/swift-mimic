@@ -1,0 +1,23 @@
+PODS:
+  - Alamofire (4.8.0)
+  - swift-mimic (0.1.0):
+    - Alamofire
+
+DEPENDENCIES:
+  - swift-mimic (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+
+EXTERNAL SOURCES:
+  swift-mimic:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  swift-mimic: 036a6c63ccc24d9854c4d7a6349066b9591e87d5
+
+PODFILE CHECKSUM: 0dd3388ffee32eb623c79574e6793051fd2a1cbf
+
+COCOAPODS: 1.5.3
