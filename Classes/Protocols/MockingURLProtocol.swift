@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Alamofire
 
-class MockingURLProtocol: URLProtocol {
+public class MockingURLProtocol: URLProtocol {
     private struct PropertyKeys {
         static let handledByForwarderURLProtocol = "HandledByProxyURLProtocol"
     }
@@ -32,13 +32,13 @@ class MockingURLProtocol: URLProtocol {
     
     public static let formatter = MockSuiteFormatter()
     
-    override class func canInit(with request: URLRequest) -> Bool {
+    override public class func canInit(with request: URLRequest) -> Bool {
         return URLProtocol.property(
             forKey: PropertyKeys.handledByForwarderURLProtocol,
             in: request) == nil
     }
     
-    override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+    override public class func canonicalRequest(for request: URLRequest) -> URLRequest {
         guard let headers = request.allHTTPHeaderFields else {
             return request
         }
@@ -50,11 +50,11 @@ class MockingURLProtocol: URLProtocol {
         }
     }
     
-    override class func requestIsCacheEquivalent(_ a: URLRequest, to b: URLRequest) -> Bool {
+    override public class func requestIsCacheEquivalent(_ a: URLRequest, to b: URLRequest) -> Bool {
         return false
     }
     
-    override func startLoading() {
+    override public func startLoading() {
         guard let mockString = ProcessInfo.processInfo.environment[MockConstants.mockDataSuiteKey] else {
             return
         }
@@ -113,7 +113,7 @@ class MockingURLProtocol: URLProtocol {
         client?.urlProtocolDidFinishLoading(self)
     }
     
-    override func stopLoading() {
+    override public func stopLoading() {
         activeTask?.cancel()
     }
 }

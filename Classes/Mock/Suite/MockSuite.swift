@@ -16,7 +16,7 @@ public struct MockSuite {
     
     // MARK: Initialization
     
-    init() {
+    public init() {
     }
 }
 

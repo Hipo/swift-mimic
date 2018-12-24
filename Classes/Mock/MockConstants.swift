@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct MockConstants {
-    static let mockDataSuiteKey = "MockSuite"
-    static let baseFile = "Mock"
-    static let success = "success"
-    static let failure = "failure"
-    static let path = "path"
-    static let httpMethod = "httpMethod"
-    static let contentType = "contentType"
-    static let status = "status"
-    static let code = "code"
-    static let customSettings = "custom"
+public struct MockConstants {
+    public static let mockDataSuiteKey = "MockSuite"
+    public static let baseFile = "Mock"
+    public static let success = "success"
+    public static let failure = "failure"
+    public static let path = "path"
+    public static let httpMethod = "httpMethod"
+    public static let contentType = "contentType"
+    public static let status = "status"
+    public static let code = "code"
+    public static let customSettings = "custom"
 }

@@ -12,16 +12,16 @@ public struct Mock {
     
     // MARK: Variables
     
-    var httpMethod = MockHTTPMethod.get
-    var contentType = MockContentType.json
-    var statusCode = MockStatusCode(rawValue: 200)
-    var customSettings = [String]()
+    public var httpMethod = MockHTTPMethod.get
+    public var contentType = MockContentType.json
+    public var statusCode = MockStatusCode(rawValue: 200)
+    public var customSettings = [String]()
     
     let path: String
     
     // MARK: Initialization
     
-    init(path: String) {
+    public init(path: String) {
         self.path = path
     }
 }

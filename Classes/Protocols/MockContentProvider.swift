@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MockContentProvider {
+public protocol MockContentProvider {
     
     func findContent(for mock: Mock) -> Data?
 }

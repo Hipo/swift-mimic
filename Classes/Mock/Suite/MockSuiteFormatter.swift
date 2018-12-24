@@ -8,9 +8,9 @@
 
 import Foundation
 
-class MockSuiteFormatter {
+public class MockSuiteFormatter {
     
-    weak var delegate: MockContentProviderDelegate?
+    public weak var delegate: MockContentProviderDelegate?
     
     func getResult(
         for request: URLRequest,
@@ -20,7 +20,7 @@ class MockSuiteFormatter {
         return delegate?.result(for: request, and: mock)
     }
     
-    static func string(from mockSuite: MockSuite) -> String {
+    public static func string(from mockSuite: MockSuite) -> String {
         var result = "["
         
         for (index, mock) in mockSuite.enumerated() {

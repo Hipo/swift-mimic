@@ -8,19 +8,22 @@
 
 import Foundation
 
-protocol MockContentProviderDelegate: class {
+public protocol MockContentProviderDelegate: class {
     
     var contentProvider: MockContentProvider { get }
-    func result(for request: URLRequest, and mock: Mock) -> (response: HTTPURLResponse, data: Data)?
+    func result(
+        for request: URLRequest,
+        and mock: Mock)
+        -> (response: HTTPURLResponse, data: Data)?
 }
 
 extension MockContentProviderDelegate {
     
-    var contentProvider: MockContentProvider {
+    public var contentProvider: MockContentProvider {
         return HIPMockContentProvider()
     }
     
-    func result(
+    public func result(
         for request: URLRequest,
         and mock: Mock)
         -> (response: HTTPURLResponse, data: Data)? {
