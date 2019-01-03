@@ -23,7 +23,7 @@ open class Session<
         }
         
         let urlSessionConfiguration = URLSessionConfiguration.ephemeral
-        urlSessionConfiguration.protocolClasses = [MIMURLProtocol<Finder>.self]
+        urlSessionConfiguration.protocolClasses = [MIMURLProtocol<Serialization, Finder>.self]
 
         let mockSuiteResult: MockSuiteSerializationResult<Serialization.MockSuite>
         
