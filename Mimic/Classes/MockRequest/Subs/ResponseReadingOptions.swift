@@ -9,14 +9,11 @@ import Foundation
 
 public struct ResponseReadingOptions: Codable {
     public typealias OptionType = Option
-    public typealias ParameterType = Any
+    public typealias ParameterType = String /// TODO: How to change needed parameter type???
     
     fileprivate typealias InnerType = Dictionary<OptionType, ParameterType>
     
     private var options: InnerType = [:]
-    
-    public init(from decoder: Decoder) throws {
-    }
 
     private init() {
     }
@@ -24,9 +21,6 @@ public struct ResponseReadingOptions: Codable {
     private init<S>(_ sequence: S) where S: Sequence, S.Element == Element {
         self.init()
         sequence.forEach { options[$0.option] = $0.parameter }
-    }
-    
-    public func encode(to encoder: Encoder) throws {
     }
 }
 
