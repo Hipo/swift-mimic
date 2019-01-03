@@ -11,8 +11,11 @@ public enum Error {
     public typealias System = Swift.Error
 
     case serialization(Serialization)
-    case noMimicProcessPresent
-    case noMockSuiteProvided
+
+    case emptyOrCorruptedMockSuite
+    case noSessionLaunched
+
+    case unknown(underlyingError: System?)
 }
 
 extension Error {
