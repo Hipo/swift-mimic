@@ -14,6 +14,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		CDF915DF21E38BE6002882BF /* test1.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDF915DE21E38BE6002882BF /* test1.bundle */; };
+		CDF915E021E38C00002882BF /* test1.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDF915DE21E38BE6002882BF /* test1.bundle */; };
 		D0A8E57650A56B33B315305C /* Pods_swift_mimic_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CEE21FE495D6B2E4535DEE /* Pods_swift_mimic_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,7 @@
 		6D244B6A89172DFA1FE96B0B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A66904C4827365B3C2E7D93D /* Pods_swift_mimic_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_mimic_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C65B547674ABAA87FB401C46 /* Pods-swift-mimic_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-mimic_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-mimic_Tests/Pods-swift-mimic_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		CDF915DE21E38BE6002882BF /* test1.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = test1.bundle; sourceTree = "<group>"; };
 		E3D1D40A6E87B546B3BED63C /* swift-mimic.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "swift-mimic.podspec"; path = "../swift-mimic.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F60760FB2879602185E9699E /* Pods-swift-mimic_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-mimic_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-mimic_Example/Pods-swift-mimic_Example.release.xcconfig"; sourceTree = "<group>"; };
 		FA3FEA0C3714036E63E70F36 /* Pods-swift-mimic_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-mimic_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-mimic_Tests/Pods-swift-mimic_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +118,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				CDF915DE21E38BE6002882BF /* test1.bundle */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -246,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				CDF915E021E38C00002882BF /* test1.bundle in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -255,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDF915DF21E38BE6002882BF /* test1.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

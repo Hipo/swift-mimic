@@ -8,8 +8,8 @@
 import Foundation
 
 open class MIMMockFinder {
-    open class func findMock(for mockRequest: MockRequest) throws -> Data {
-        return Data()
+    public static var mainDirectoryUrl: URL {
+        return Bundle.main.bundleURL.appendingPathComponent("Mocks", isDirectory: true)
     }
 }
 

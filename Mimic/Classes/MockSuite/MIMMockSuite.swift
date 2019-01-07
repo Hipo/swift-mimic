@@ -16,7 +16,7 @@ open class MIMMockSuite: MockSuiteConvertible {
     }
     
     open subscript(request: URLRequest) -> MockRequest? {
-        return nil
+        return mockRequests.first(where: { $0.isEqual(to: request) })
     }
     
     open func append(_ newMockRequest: MockRequest) {

@@ -10,10 +10,12 @@ import Foundation
 public enum Error {
     public typealias System = Swift.Error
 
+    case noSession
+
     case serialization(Serialization)
 
     case emptyOrCorruptedMockSuite
-    case noSessionLaunched
+    case emptyOrCorruptedMock(System?)
 
     case unknown(underlyingError: System?)
 }

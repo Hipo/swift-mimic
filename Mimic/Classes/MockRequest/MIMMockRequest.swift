@@ -12,12 +12,13 @@ open class MIMMockRequest: MockRequestConvertible {
 
     public var responseStatusCode = ResponseStatusCode.success(200)
     public var responseEncoding = ResponseEncoding.json
-    public var options: ResponseReadingOptions = [:]
+    public var options: MockOptions = [:]
     
-    public let path: Path
+    /// Accepts an url path pattern matching to the related mock file path, i.e. api/users/authenticate/
+    public let path: String
     
-    public required init(path: Path) {
-        self.path = path
+    public required init(path: PathConvertible) {
+        self.path = path.toString()
     }
 }
 
@@ -27,6 +28,7 @@ extension MIMMockRequest: CustomStringConvertible {
         Request: \(httpMethod.description) \(path.description)
         Status: \(responseStatusCode.description)
         Encoding: \(responseEncoding.description)
+        Options: \(options.description)
         """
     }
 }

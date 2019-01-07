@@ -13,5 +13,6 @@ public protocol MockSuiteConvertible: AnyObject, Codable {
     init()
 
     subscript(request: URLRequest) -> MockRequest? { get }
+
     func append(_ newMockRequest: MockRequest)
 }

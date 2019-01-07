@@ -12,11 +12,13 @@ public protocol MockRequestConvertible: AnyObject, Codable {
     
     var responseStatusCode: ResponseStatusCode { get set }
     var responseEncoding: ResponseEncoding { get }
-    var options: ResponseReadingOptions { get }
+    var options: MockOptions { get }
     
-    var path: Path { get }
+    var path: String { get }
     
-    init(path: Path)
+    init(path: PathConvertible)
+    
+    func isEqual(to request: URLRequest) -> Bool
 }
 
 extension MockRequestConvertible {
@@ -24,7 +26,14 @@ extension MockRequestConvertible {
         return .json
     }
     
-    public var options: ResponseReadingOptions {
+    public var options: MockOptions {
         return [:]
+    }
+    
+    public func isEqual(to request: URLRequest) -> Bool {
+        let ignoredPathChars = "/"
+        return
+            path.trimmed(ignoredPathChars) == request.url?.path.trimmed(ignoredPathChars) &&
+            httpMethod.rawValue == request.httpMethod
     }
 }

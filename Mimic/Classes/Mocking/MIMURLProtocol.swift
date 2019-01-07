@@ -25,7 +25,7 @@ class MIMURLProtocol<
     
     open override func startLoading() {
         guard let session = Session<Serialization, Finder>.shared else {
-            client?.urlProtocol(self, didFailWithError: Error.noSessionLaunched)
+            client?.urlProtocol(self, didFailWithError: Error.noSession)
             return
         }
             

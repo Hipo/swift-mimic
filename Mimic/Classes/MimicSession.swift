@@ -10,15 +10,29 @@ import Foundation
 open class Session<
   Serialization: MockSuiteSerialization,
   Finder: MockFinder
-> where Serialization.MockSuite.MockRequest == Finder.MockRequest {
-    public typealias SharedSession = Shared<Serialization.MockSuite>
+>: SessionStorable where Serialization.MockSuite.MockRequest == Finder.MockRequest {
+    public typealias MockSuite = Serialization.MockSuite
+    typealias MockSuiteResult = MockSuiteSerializationResult<MockSuite>
+
+    public var mockSuite: MockSuite? {
+        return mockSuiteResult.mockSuite
+    }
+
+    public let isRunning: Bool
+    public let urlSessionConfiguration: URLSessionConfiguration
+
+    let mockSuiteResult: MockSuiteResult
     
-    public static var shared: SharedSession? {
+    private static var isRunning: Bool {
+        return ProcessInfo.processInfo.arguments.contains(LaunchKeys.mimicIsRunning)
+    }
+    
+    public static var shared: Session<Serialization, Finder>? {
         if !isRunning {
             return nil
         }
         
-        if let session = savedSession as? SharedSession {
+        if let session = savedSession as? Session<Serialization, Finder> {
             return session
         }
         
@@ -40,7 +54,7 @@ open class Session<
             mockSuiteResult = .failure(.emptyOrCorruptedMockSuite)
         }
         
-        let session = Shared<Serialization.MockSuite>(
+        let session = Session<Serialization, Finder>(
             urlSessionConfiguration: urlSessionConfiguration,
             mockSuiteResult: mockSuiteResult
         )
@@ -50,37 +64,19 @@ open class Session<
         return session
     }
     
-    private static var isRunning: Bool {
-        return ProcessInfo.processInfo.arguments.contains(LaunchKeys.mimicIsRunning)
-    }
-}
-
-extension Session {
-    public class Shared<MockSuite: MockSuiteConvertible>: SessionInterface {
-        typealias MockSuiteResult = MockSuiteSerializationResult<MockSuite>
-        
-        public var mockSuite: MockSuite? {
-            return mockSuiteResult.mockSuite
-        }
-        
-        public let urlSessionConfiguration: URLSessionConfiguration
-
-        let mockSuiteResult: MockSuiteResult
-
-        fileprivate init(
-            urlSessionConfiguration: URLSessionConfiguration,
-            mockSuiteResult: MockSuiteResult
-        ) {
-            self.urlSessionConfiguration = urlSessionConfiguration
-            self.mockSuiteResult = mockSuiteResult
-        }
+    private init(
+        urlSessionConfiguration: URLSessionConfiguration,
+        mockSuiteResult: MockSuiteResult
+    ) {
+        self.isRunning = true
+        self.urlSessionConfiguration = urlSessionConfiguration
+        self.mockSuiteResult = mockSuiteResult
     }
 }
 
 public typealias MimicSession = Session<MIMMockSuiteSerialization, MIMMockFinder>
 
-protocol SessionInterface {
-    var urlSessionConfiguration: URLSessionConfiguration { get }
+protocol SessionStorable {
 }
 
-var savedSession: SessionInterface?
+var savedSession: SessionStorable?
