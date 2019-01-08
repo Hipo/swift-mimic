@@ -22,11 +22,17 @@ extension MockFinder {
         let fileExtension = mockRequest.responseEncoding.rawValue
         
         let fileUrl = dir
-            .appendingPathComponent(file, isDirectory: false)
+            .appendingPathComponent(
+                file,
+                isDirectory: false
+            )
             .appendingPathExtension(fileExtension)
         
         do {
-            return try Data(contentsOf: fileUrl, options: .mappedIfSafe)
+            return try Data(
+                contentsOf: fileUrl,
+                options: .mappedIfSafe
+            )
         } catch let error {
             throw Error.emptyOrCorruptedMock(error)
         }
@@ -62,6 +68,9 @@ extension MockFinder {
             }
         }
         
-        return mainDirectoryUrl.appendingPathComponent(dirPath, isDirectory: true)
+        return mainDirectoryUrl.appendingPathComponent(
+            dirPath,
+            isDirectory: true
+        )
     }
 }

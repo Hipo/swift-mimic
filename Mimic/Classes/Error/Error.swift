@@ -14,6 +14,7 @@ public enum Error {
 
     case serialization(Serialization)
 
+    case unidentifierUrl
     case emptyOrCorruptedMockSuite
     case emptyOrCorruptedMock(System?)
 

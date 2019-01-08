@@ -19,13 +19,19 @@ class MIMURLProtocol<
         return request
     }
     
-    open override class func requestIsCacheEquivalent(_ a: URLRequest, to b: URLRequest) -> Bool {
+    open override class func requestIsCacheEquivalent(
+        _ a: URLRequest,
+        to b: URLRequest
+    ) -> Bool {
         return false
     }
     
     open override func startLoading() {
         guard let session = Session<Serialization, Finder>.shared else {
-            client?.urlProtocol(self, didFailWithError: Error.noSession)
+            client?.urlProtocol(
+                self,
+                didFailWithError: Error.noSession
+            )
             return
         }
             
@@ -35,29 +41,83 @@ class MIMURLProtocol<
         case .success(let aMockSuite):
             mockSuite = aMockSuite
         case .failure(let error):
-            client?.urlProtocol(self, didFailWithError: error)
+            client?.urlProtocol(
+                self,
+                didFailWithError: error
+            )
             return
         }
 
-        guard let mockRequest = mockSuite[request] else {
-            /// TODO: Call the relevant URL protocol method.
+        guard
+            let mockRequest = mockSuite[request],
+            let response = urlResponse(
+                with: mockRequest,
+                for: request
+            )
+        else {
+            client?.urlProtocol(
+                self,
+                didFailWithError: Error.unidentifierUrl
+            )
             return
         }
 
         do {
             let mock = try Finder.findMock(for: mockRequest)
-            /// TODO: Create a propert response object.
-            let response = HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!
-            
-            client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
-            client?.urlProtocol(self, didLoad: mock)
+
+            client?.urlProtocol(
+                self,
+                didReceive: response,
+                cacheStoragePolicy: .notAllowed
+            )
+            client?.urlProtocol(
+                self,
+                didLoad: mock
+            )
             client?.urlProtocolDidFinishLoading(self)
         } catch let error {
-            print("Error \(error.localizedDescription)")
-            /// TODO: Call the relevant URL protocol method.
+            client?.urlProtocol(
+                self,
+                didFailWithError: error
+            )
         }
     }
     
     open override func stopLoading() {
+    }
+}
+
+extension MIMURLProtocol {
+    private func urlResponse(
+        with mockRequest: Finder.MockRequest,
+        for request: URLRequest
+    ) -> HTTPURLResponse? {
+        guard let url = request.url else {
+            return nil
+        }
+        
+        var headers: [String: String] = [:]
+        
+        headers["Allow"] = request.httpMethod
+        headers["Content-Type"] = request.value(forHTTPHeaderField: "Accept")
+        headers["Date"] = getServerTime()
+        
+        if let body = request.httpBody {
+            headers["Content-Length"] = String(body.count)
+        }
+        
+        return HTTPURLResponse(
+            url: url,
+            statusCode: mockRequest.responseStatusCode.rawValue,
+            httpVersion: "HTTP/1.1",
+            headerFields: headers
+        )
+    }
+    
+    private func getServerTime() -> String {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(abbreviation: "GMT")
+        formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss z"
+        return formatter.string(from: Date())
     }
 }
