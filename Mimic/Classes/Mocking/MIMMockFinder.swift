@@ -9,10 +9,13 @@ import Foundation
 
 open class MIMMockFinder {
     public static var mainDirectoryUrl: URL {
-        return Bundle.main.bundleURL.appendingPathComponent(
-            "Mocks",
-            isDirectory: true
-        )
+        guard let url = Bundle.main.url(
+            forResource: "Mocks",
+            withExtension: "bundle"
+        ) else {
+            fatalError("Mocks not found.")
+        }
+        return url
     }
 }
 
