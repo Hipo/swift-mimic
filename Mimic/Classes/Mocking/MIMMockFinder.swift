@@ -9,7 +9,10 @@ import Foundation
 
 open class MIMMockFinder {
     public static var mainDirectoryUrl: URL {
-        return Bundle.main.bundleURL.appendingPathComponent("Mocks", isDirectory: true)
+        return Bundle.main.bundleURL.appendingPathComponent(
+            "Mocks",
+            isDirectory: true
+        )
     }
 }
 
