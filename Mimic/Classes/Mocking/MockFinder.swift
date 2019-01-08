@@ -18,7 +18,7 @@ public protocol MockFinder: AnyObject {
 extension MockFinder {
     public static func findMock(for mockRequest: MockRequest) throws -> Data {
         let dir = dirUrl(for: mockRequest)
-        let file = mockRequest.httpMethod.rawValue
+        let file = mockRequest.httpMethod.rawValue.lowercased()
         let fileExtension = mockRequest.responseEncoding.rawValue
         
         let fileUrl = dir
