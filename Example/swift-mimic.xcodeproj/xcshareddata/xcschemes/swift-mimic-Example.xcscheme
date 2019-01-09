@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "swift-mimic_Tests.xctest"
-               BlueprintName = "swift-mimic_Tests"
+               BlueprintIdentifier = "EC97449721E629EE000269B5"
+               BuildableName = "swift-mimic-ExampleTest.xctest"
+               BlueprintName = "swift-mimic-ExampleTest"
                ReferencedContainer = "container:swift-mimic.xcodeproj">
             </BuildableReference>
          </TestableReference>
