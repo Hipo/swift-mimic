@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'swift-mimic_Example' do
+  pod 'swift-mimic', :path => '../'
+
+  target 'swift-mimic_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
