@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'swift-mimic'
-  s.version          = '0.2.1'
+  s.version          = '0.2.2'
   s.summary          = 'UI testing framework for iOS projects that allows easy API mocking for localized and quick tests.'
   s.homepage         = 'https://github.com/hipo/swift-mimic'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/hipo/swift-mimic.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/hipolabs'
 
+  s.swift_version = '4.2'
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'Mimic/Classes/**/*'
