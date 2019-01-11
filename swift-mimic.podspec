@@ -8,18 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'swift-mimic'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'UI testing framework for iOS projects that allows easy API mocking for localized and quick tests.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-                       DESC
-
   s.homepage         = 'https://github.com/hipo/swift-mimic'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'goktugberkulu' => 'goktugberkulu@gmail.com' }
