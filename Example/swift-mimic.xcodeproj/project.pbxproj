@@ -7,16 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		301DBE2F858B6DDB306A17CD /* Pods_swift_mimic_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66904C4827365B3C2E7D93D /* Pods_swift_mimic_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		669F9ED386B5C776EB3DFDE2 /* Pods_swift_mimic_ExampleTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A08B41B002E4B4202B4017A /* Pods_swift_mimic_ExampleTest.framework */; };
-		9F5230F9804A4FC2B1A8015A /* Pods_swift_mimic_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9744A221E62BB3000269B5 /* Pods_swift_mimic_Example.framework */; };
+		8366CF1AFF017AFCA4D3FB16 /* Pods_swift_mimic_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FC0BCFF277CF56EF62BFCF /* Pods_swift_mimic_Example.framework */; };
+		91EDA6E62A4B43630A4668C4 /* Pods_swift_mimic_ExampleTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BC0FE40DCEFD96524E03C3 /* Pods_swift_mimic_ExampleTest.framework */; };
 		EC97449B21E629EE000269B5 /* ExampleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97449A21E629EE000269B5 /* ExampleTest.swift */; };
-		EC9744A321E62BB3000269B5 /* Pods_swift_mimic_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9744A221E62BB3000269B5 /* Pods_swift_mimic_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,8 +29,10 @@
 
 /* Begin PBXFileReference section */
 		019EA871B5531B1A13CD9897 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		1F3BAAB2794C94065E0F6265 /* Pods-swift-mimic_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-mimic_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-mimic_Example/Pods-swift-mimic_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		43CEE21FE495D6B2E4535DEE /* Pods_swift_mimic_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_mimic_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C8199F082B346163E496542 /* Pods-swift-mimic-ExampleTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-mimic-ExampleTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-mimic-ExampleTest/Pods-swift-mimic-ExampleTest.debug.xcconfig"; sourceTree = "<group>"; };
+		39BC0FE40DCEFD96524E03C3 /* Pods_swift_mimic_ExampleTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_mimic_ExampleTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43FC0BCFF277CF56EF62BFCF /* Pods_swift_mimic_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_mimic_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A191EDCF6456E052DD76B1F /* Pods-swift-mimic_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-mimic_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-mimic_Example/Pods-swift-mimic_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* swift-mimic_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-mimic_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,19 +40,13 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		6B10EEE6D7B85712C766253F /* Pods-swift-mimic-ExampleTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-mimic-ExampleTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-mimic-ExampleTest/Pods-swift-mimic-ExampleTest.release.xcconfig"; sourceTree = "<group>"; };
 		6D244B6A89172DFA1FE96B0B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		6DB22B83145C63D2FEC5265D /* Pods-swift-mimic-ExampleTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-mimic-ExampleTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-mimic-ExampleTest/Pods-swift-mimic-ExampleTest.debug.xcconfig"; sourceTree = "<group>"; };
-		9A08B41B002E4B4202B4017A /* Pods_swift_mimic_ExampleTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_mimic_ExampleTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A66904C4827365B3C2E7D93D /* Pods_swift_mimic_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_mimic_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C65B547674ABAA87FB401C46 /* Pods-swift-mimic_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-mimic_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-mimic_Tests/Pods-swift-mimic_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		D1E75B371ED9F19E6AC45BE0 /* Pods-swift-mimic-ExampleTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-mimic-ExampleTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-mimic-ExampleTest/Pods-swift-mimic-ExampleTest.release.xcconfig"; sourceTree = "<group>"; };
+		9F3D291D2663A6913950973B /* Pods-swift-mimic_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-mimic_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-mimic_Example/Pods-swift-mimic_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E3D1D40A6E87B546B3BED63C /* swift-mimic.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "swift-mimic.podspec"; path = "../swift-mimic.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EC97449821E629EE000269B5 /* swift-mimic-ExampleTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-mimic-ExampleTest.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC97449A21E629EE000269B5 /* ExampleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTest.swift; sourceTree = "<group>"; };
 		EC97449C21E629EE000269B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC9744A221E62BB3000269B5 /* Pods_swift_mimic_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_swift_mimic_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F60760FB2879602185E9699E /* Pods-swift-mimic_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-mimic_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-mimic_Example/Pods-swift-mimic_Example.release.xcconfig"; sourceTree = "<group>"; };
-		FA3FEA0C3714036E63E70F36 /* Pods-swift-mimic_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-mimic_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-mimic_Tests/Pods-swift-mimic_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				301DBE2F858B6DDB306A17CD /* Pods_swift_mimic_Example.framework in Frameworks */,
-				9F5230F9804A4FC2B1A8015A /* Pods_swift_mimic_Example.framework in Frameworks */,
+				8366CF1AFF017AFCA4D3FB16 /* Pods_swift_mimic_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,14 +62,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC9744A321E62BB3000269B5 /* Pods_swift_mimic_Example.framework in Frameworks */,
-				669F9ED386B5C776EB3DFDE2 /* Pods_swift_mimic_ExampleTest.framework in Frameworks */,
+				91EDA6E62A4B43630A4668C4 /* Pods_swift_mimic_ExampleTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CCE5EBAB9F4BBBC69B96D1E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C8199F082B346163E496542 /* Pods-swift-mimic-ExampleTest.debug.xcconfig */,
+				6B10EEE6D7B85712C766253F /* Pods-swift-mimic-ExampleTest.release.xcconfig */,
+				4A191EDCF6456E052DD76B1F /* Pods-swift-mimic_Example.debug.xcconfig */,
+				9F3D291D2663A6913950973B /* Pods-swift-mimic_Example.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -84,8 +87,8 @@
 				607FACD21AFB9204008FA782 /* Example for swift-mimic */,
 				EC97449921E629EE000269B5 /* swift-mimic-ExampleTest */,
 				607FACD11AFB9204008FA782 /* Products */,
-				93E263EEBECCB56BA6036446 /* Pods */,
-				FAC45A3ACC013BAC68305E39 /* Frameworks */,
+				3CCE5EBAB9F4BBBC69B96D1E /* Pods */,
+				D098E52AD92B3AC98CB516CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,17 +133,13 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		93E263EEBECCB56BA6036446 /* Pods */ = {
+		D098E52AD92B3AC98CB516CB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1F3BAAB2794C94065E0F6265 /* Pods-swift-mimic_Example.debug.xcconfig */,
-				F60760FB2879602185E9699E /* Pods-swift-mimic_Example.release.xcconfig */,
-				FA3FEA0C3714036E63E70F36 /* Pods-swift-mimic_Tests.debug.xcconfig */,
-				C65B547674ABAA87FB401C46 /* Pods-swift-mimic_Tests.release.xcconfig */,
-				6DB22B83145C63D2FEC5265D /* Pods-swift-mimic-ExampleTest.debug.xcconfig */,
-				D1E75B371ED9F19E6AC45BE0 /* Pods-swift-mimic-ExampleTest.release.xcconfig */,
+				39BC0FE40DCEFD96524E03C3 /* Pods_swift_mimic_ExampleTest.framework */,
+				43FC0BCFF277CF56EF62BFCF /* Pods_swift_mimic_Example.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		EC97449921E629EE000269B5 /* swift-mimic-ExampleTest */ = {
@@ -152,17 +151,6 @@
 			path = "swift-mimic-ExampleTest";
 			sourceTree = "<group>";
 		};
-		FAC45A3ACC013BAC68305E39 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EC9744A221E62BB3000269B5 /* Pods_swift_mimic_Example.framework */,
-				A66904C4827365B3C2E7D93D /* Pods_swift_mimic_Example.framework */,
-				43CEE21FE495D6B2E4535DEE /* Pods_swift_mimic_Tests.framework */,
-				9A08B41B002E4B4202B4017A /* Pods_swift_mimic_ExampleTest.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,11 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "swift-mimic_Example" */;
 			buildPhases = (
-				5FEB935BD6855ECA9BBC5ABD /* [CP] Check Pods Manifest.lock */,
+				0CD31F05354DE83557EB00C1 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				357CEF064429456B3FEBD41E /* [CP] Embed Pods Frameworks */,
+				E6CBD91710986372E609155D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,10 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC97449F21E629EE000269B5 /* Build configuration list for PBXNativeTarget "swift-mimic-ExampleTest" */;
 			buildPhases = (
-				1215DC07195F6AB9749CDC87 /* [CP] Check Pods Manifest.lock */,
+				A0CFA4D4AD54537EFE33461B /* [CP] Check Pods Manifest.lock */,
 				EC97449421E629EE000269B5 /* Sources */,
 				EC97449521E629EE000269B5 /* Frameworks */,
 				EC97449621E629EE000269B5 /* Resources */,
+				2F12C6942DDD79D7A1B24113 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,7 +254,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1215DC07195F6AB9749CDC87 /* [CP] Check Pods Manifest.lock */ = {
+		0CD31F05354DE83557EB00C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swift-mimic_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2F12C6942DDD79D7A1B24113 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-swift-mimic-ExampleTest/Pods-swift-mimic-ExampleTest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/swift-mimic/swift_mimic.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/swift_mimic.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swift-mimic-ExampleTest/Pods-swift-mimic-ExampleTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0CFA4D4AD54537EFE33461B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -287,40 +320,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		357CEF064429456B3FEBD41E /* [CP] Embed Pods Frameworks */ = {
+		E6CBD91710986372E609155D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-swift-mimic_Example/Pods-swift-mimic_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/swift-mimic/swift_mimic.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/swift_mimic.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swift-mimic_Example/Pods-swift-mimic_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5FEB935BD6855ECA9BBC5ABD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-swift-mimic_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -480,7 +499,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F3BAAB2794C94065E0F6265 /* Pods-swift-mimic_Example.debug.xcconfig */;
+			baseConfigurationReference = 4A191EDCF6456E052DD76B1F /* Pods-swift-mimic_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "swift-mimic/Info.plist";
@@ -494,7 +513,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F60760FB2879602185E9699E /* Pods-swift-mimic_Example.release.xcconfig */;
+			baseConfigurationReference = 9F3D291D2663A6913950973B /* Pods-swift-mimic_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "swift-mimic/Info.plist";
@@ -508,7 +527,7 @@
 		};
 		EC9744A021E629EE000269B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6DB22B83145C63D2FEC5265D /* Pods-swift-mimic-ExampleTest.debug.xcconfig */;
+			baseConfigurationReference = 2C8199F082B346163E496542 /* Pods-swift-mimic-ExampleTest.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -521,7 +540,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "swift-mimic-ExampleTest/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -536,7 +555,7 @@
 		};
 		EC9744A121E629EE000269B5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1E75B371ED9F19E6AC45BE0 /* Pods-swift-mimic-ExampleTest.release.xcconfig */;
+			baseConfigurationReference = 6B10EEE6D7B85712C766253F /* Pods-swift-mimic-ExampleTest.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -548,7 +567,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "swift-mimic-ExampleTest/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hipo.swift-mimic-ExampleTest";
