@@ -1,5 +1,5 @@
 PODS:
-  - swift-mimic (0.1.0)
+  - swift-mimic (0.2.2)
 
 DEPENDENCIES:
   - swift-mimic (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  swift-mimic: f95b40c0eaec1bffab875c1cd552e6e5a8042c35
+  swift-mimic: 5148f9c88eab83a8674f1b960e3945af53de8983
 
-PODFILE CHECKSUM: e7de9fca348d3804ecdc91b498cdd8d9a89393de
+PODFILE CHECKSUM: 6e4de045deb7c20d77e84b1525f671259773899a
 
 COCOAPODS: 1.5.3
