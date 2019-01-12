@@ -15,6 +15,8 @@
 		8366CF1AFF017AFCA4D3FB16 /* Pods_swift_mimic_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FC0BCFF277CF56EF62BFCF /* Pods_swift_mimic_Example.framework */; };
 		91EDA6E62A4B43630A4668C4 /* Pods_swift_mimic_ExampleTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BC0FE40DCEFD96524E03C3 /* Pods_swift_mimic_ExampleTest.framework */; };
 		EC97449B21E629EE000269B5 /* ExampleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97449A21E629EE000269B5 /* ExampleTest.swift */; };
+		ECBC84D321EA7BAE006335E2 /* Mocks.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ECBC84D221EA7BAE006335E2 /* Mocks.bundle */; };
+		ECBC84D421EA81A7006335E2 /* Mocks.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ECBC84D221EA7BAE006335E2 /* Mocks.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,7 @@
 		EC97449821E629EE000269B5 /* swift-mimic-ExampleTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-mimic-ExampleTest.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC97449A21E629EE000269B5 /* ExampleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTest.swift; sourceTree = "<group>"; };
 		EC97449C21E629EE000269B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECBC84D221EA7BAE006335E2 /* Mocks.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Mocks.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,7 @@
 		EC97449921E629EE000269B5 /* swift-mimic-ExampleTest */ = {
 			isa = PBXGroup;
 			children = (
+				ECBC84D221EA7BAE006335E2 /* Mocks.bundle */,
 				EC97449A21E629EE000269B5 /* ExampleTest.swift */,
 				EC97449C21E629EE000269B5 /* Info.plist */,
 			);
@@ -239,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				ECBC84D421EA81A7006335E2 /* Mocks.bundle in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -248,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECBC84D321EA7BAE006335E2 /* Mocks.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
