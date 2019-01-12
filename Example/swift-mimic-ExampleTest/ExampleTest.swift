@@ -10,18 +10,19 @@ import XCTest
 import swift_mimic
 
 
-enum Pat: String {
-    case authenticate = "api/authenticate/"
+extension XCUIApplication: MimicUIApplication {
+    
 }
 
-extension Pat: PathConvertible {
+
+enum MockPaths: String {
+    case userRepos = "/repos"
+}
+
+extension MockPaths: PathConvertible {
     func toString() -> String {
         return rawValue
     }
-}
-
-extension XCUIApplication: MimicUIApplication {
-    
 }
 
 
@@ -34,40 +35,25 @@ class ExampleTest: XCTestCase {
 
         let suite = MIMMockSuite()
         
-        let mockRequest = MIMMockRequest(path: Pat.authenticate)
-        mockRequest.httpMethod = .post
-        mockRequest.responseStatusCode = .failure(403)
-        mockRequest.options = [.additionalPathComponents: "admin"]
-        
-        suite.append(mockRequest)
-        
-        let mockRequest1 = MIMMockRequest(path: "api/authenticate/3/")
-        mockRequest1.httpMethod = .post
-        mockRequest1.responseStatusCode = .failure(403)
-        mockRequest1.options = [.additionalPathComponents: "user", .mockDeattached: true]
-        
-        suite.append(mockRequest1)
-        
+        let reposMock = MIMMockRequest(path: MockPaths.userRepos)
+        suite.append(reposMock)
+
         try? MimicLauncher.launch(app, with: suite)
-
-//        let text = try MIMMockSuiteSerialization.encode(suite)
-//        let newMockSuite = try MIMMockSuiteSerialization.decode(text)
-//
-//        var req = URLRequest(url: URL(string: "http://moment.com/api/authenticate/")!)
-//        req.httpMethod = "POST"
-//        _ = mockRequest.isEqual(to: req)
-//        print("")
-//
-//        try MimicLauncher.launch(App(), with: newMockSuite)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    func testLoginAndRepoList() {
+        let app = XCUIApplication()
 
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        app.textFields["username"].tap()
+        app.textFields["username"].typeText("taylan")
+
+        app.secureTextFields["password"].tap()
+        app.secureTextFields["password"].typeText("test")
+        
+        app.buttons["login_button"].tap()
+
+        let successText = app.otherElements.staticTexts["Success"]
+        XCTAssert(successText.exists)
     }
 
 }

@@ -13,6 +13,21 @@ import swift_mimic
 private let BaseAPIURL = "https://api.github.com"
 
 
+extension Data {
+    internal func jsonObjectRepresentation() -> Any? {
+        do {
+            let json = try JSONSerialization.jsonObject(with: self, options: .mutableContainers)
+            
+            return json
+        } catch {
+            print("Something went wrong")
+        }
+        
+        return nil
+    }
+}
+
+
 class APIManager {
     var sessionManager: SessionManager
     
@@ -32,6 +47,7 @@ class ViewController: UIViewController {
     
     var usernameField: UITextField?
     var passwordField: UITextField?
+    var resultField: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,18 +89,55 @@ class ViewController: UIViewController {
         passwordField.topAnchor.constraint(equalTo: usernameField.layoutMarginsGuide.bottomAnchor, constant: 40.0).isActive = true
         passwordField.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
         
+        let loginButton = UIButton(type: .roundedRect)
+        
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.accessibilityIdentifier = "login_button"
+        loginButton.addTarget(self,
+                              action: #selector(didTap(loginButton:)),
+                              for: .touchUpInside)
+        
+        view.addSubview(loginButton)
+        
+        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginButton.topAnchor.constraint(equalTo: passwordField.layoutMarginsGuide.bottomAnchor, constant: 40.0).isActive = true
+        
+        let resultField = UILabel(frame: .zero)
+        
+        resultField.lineBreakMode = .byWordWrapping
+        resultField.numberOfLines = 0
+        resultField.translatesAutoresizingMaskIntoConstraints = false
+        resultField.accessibilityIdentifier = "results"
+        resultField.backgroundColor = UIColor.lightGray
+        
+        view.addSubview(resultField)
+        
+        resultField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
+        resultField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
+        resultField.topAnchor.constraint(equalTo: loginButton.layoutMarginsGuide.bottomAnchor, constant: 80.0).isActive = true
+        
         self.usernameField = usernameField
         self.passwordField = passwordField
+        self.resultField = resultField
+        
+        usernameField.becomeFirstResponder()
+    }
+    
+    @objc func didTap(loginButton: UIButton) {
+        authenticateAndFetchRepos()
     }
     
     func authenticateAndFetchRepos() -> Void {
-        guard let username = usernameField?.text,
-            let password = usernameField?.text else {
+        guard let username = usernameField?.text, username.count > 0,
+            let password = passwordField?.text, password.count > 0 else {
                 return
         }
         
+        self.resignFirstResponder()
+        
         apiManager.sessionManager.request(
-            BaseAPIURL,
+            BaseAPIURL + "/repos",
             method: .get,
             parameters: nil,
             encoding: JSONEncoding(),
@@ -93,7 +146,19 @@ class ViewController: UIViewController {
             user: username,
             password: password
         ).response { (defaultDataResponse) in
+            if let error = defaultDataResponse.error {
+                print("Error: " + error.localizedDescription)
+                self.resultField?.text = "Error"
+                return
+            }
             
+            guard let data = defaultDataResponse.data,
+                let jsonData = data.jsonObjectRepresentation() as? NSDictionary else {
+                    return
+            }
+            
+            print("Response: " + jsonData.description)
+            self.resultField?.text = "Success"
         }
     }
 }
