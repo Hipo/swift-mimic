@@ -8,11 +8,11 @@
 
 Pod::Spec.new do |s|
   s.name             = 'swift-mimic'
-  s.version          = '0.2.2'
+  s.version          = '0.2.3'
   s.summary          = 'UI testing framework for iOS projects that allows easy API mocking for localized and quick tests.'
   s.homepage         = 'https://github.com/hipo/swift-mimic'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'goktugberkulu' => 'goktugberkulu@gmail.com' }
+  s.author           = { 'Hipo' => 'hello@hipolabs.com' }
   s.source           = { :git => 'https://github.com/hipo/swift-mimic.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/hipolabs'
 
