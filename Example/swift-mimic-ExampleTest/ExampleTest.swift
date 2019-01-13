@@ -15,17 +15,6 @@ extension XCUIApplication: MimicUIApplication {
 }
 
 
-enum MockPaths: String {
-    case userRepos = "/repos"
-}
-
-extension MockPaths: PathConvertible {
-    func toString() -> String {
-        return rawValue
-    }
-}
-
-
 class ExampleTest: XCTestCase {
 
     var app: XCUIApplication = XCUIApplication()
@@ -35,7 +24,7 @@ class ExampleTest: XCTestCase {
 
         let suite = MIMMockSuite()
         
-        let reposMock = MIMMockRequest(path: MockPaths.userRepos)
+        let reposMock = MIMMockRequest(path: "/user/repos")
         suite.append(reposMock)
 
         try? MimicLauncher.launch(app, with: suite)
@@ -52,7 +41,7 @@ class ExampleTest: XCTestCase {
         
         app.buttons["login_button"].tap()
 
-        let successText = app.otherElements.staticTexts["Success"]
+        let successText = app.otherElements.staticTexts["30 repos found"]
         XCTAssert(successText.exists)
     }
 

@@ -136,15 +136,18 @@ class ViewController: UIViewController {
         
         self.resignFirstResponder()
         
+        var headers: HTTPHeaders = [:]
+        
+        if let authorizationHeader = Request.authorizationHeader(user: username, password: password) {
+            headers[authorizationHeader.key] = authorizationHeader.value
+        }
+        
         apiManager.sessionManager.request(
-            BaseAPIURL + "/repos",
+            BaseAPIURL + "/user/repos",
             method: .get,
             parameters: nil,
             encoding: JSONEncoding(),
-            headers: nil
-        ).authenticate(
-            user: username,
-            password: password
+            headers: headers
         ).response { (defaultDataResponse) in
             if let error = defaultDataResponse.error {
                 print("Error: " + error.localizedDescription)
@@ -153,12 +156,19 @@ class ViewController: UIViewController {
             }
             
             guard let data = defaultDataResponse.data,
-                let jsonData = data.jsonObjectRepresentation() as? NSDictionary else {
+                let repos = data.jsonObjectRepresentation() as? NSArray else {
                     return
             }
             
-            print("Response: " + jsonData.description)
-            self.resultField?.text = "Success"
+            print("Response: " + repos.description)
+            
+            if repos.count == 1 {
+                self.resultField?.text = "\(repos.count) repo found"
+            } else if repos.count > 1 {
+                self.resultField?.text = "\(repos.count) repos found"
+            } else {
+                self.resultField?.text = "No repos found"
+            }
         }
     }
 }
