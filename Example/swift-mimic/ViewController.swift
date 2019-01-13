@@ -52,6 +52,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let logoView = UIImageView(image: UIImage(named: "Octocat"))
+        
+        logoView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(logoView)
+        
+        logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        logoView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 40.0).isActive = true
+        
         let usernameField = UITextField(frame: .zero)
         
         usernameField.placeholder = "Username"
@@ -67,7 +76,7 @@ class ViewController: UIViewController {
         
         usernameField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
         usernameField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
-        usernameField.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 100.0).isActive = true
+        usernameField.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 40.0).isActive = true
         usernameField.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
 
         let passwordField = UITextField(frame: .zero)
@@ -107,9 +116,10 @@ class ViewController: UIViewController {
         
         resultField.lineBreakMode = .byWordWrapping
         resultField.numberOfLines = 0
+        resultField.textAlignment = .center
         resultField.translatesAutoresizingMaskIntoConstraints = false
         resultField.accessibilityIdentifier = "results"
-        resultField.backgroundColor = UIColor.lightGray
+        resultField.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
         
         view.addSubview(resultField)
         
@@ -159,8 +169,6 @@ class ViewController: UIViewController {
                 let repos = data.jsonObjectRepresentation() as? NSArray else {
                     return
             }
-            
-            print("Response: " + repos.description)
             
             if repos.count == 1 {
                 self.resultField?.text = "\(repos.count) repo found"
