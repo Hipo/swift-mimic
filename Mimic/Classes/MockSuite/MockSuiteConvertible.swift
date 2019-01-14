@@ -9,10 +9,15 @@ import Foundation
 
 public protocol MockSuiteConvertible: AnyObject, Codable {
     associatedtype MockRequest: MockRequestConvertible
+    
+    var baseUrl: String { get }
+    var bundle: MockSuiteBundle { get }
 
-    init()
+    init(
+        baseUrl: String,
+        bundle: MockSuiteBundle
+    )
 
     subscript(request: URLRequest) -> MockRequest { get }
-
     func append(_ newMockRequest: MockRequest)
 }

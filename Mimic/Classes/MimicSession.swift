@@ -7,74 +7,71 @@
 
 import Foundation
 
-open class Session<
-  Serialization: MockSuiteSerialization,
-  Finder: MockFinder
->: SessionStorable where Serialization.MockSuite.MockRequest == Finder.MockRequest {
-    public typealias MockSuite = Serialization.MockSuite
-    typealias MockSuiteResult = MockSuiteSerializationResult<MockSuite>
+open class Session<Finder: MockFinder>: SessionStorable {
+    public typealias SharedSession = Session<Finder>
+    public typealias MockSuite = Finder.MockSuite
 
-    public var mockSuite: MockSuite? {
-        return mockSuiteResult.mockSuite
+    typealias Serialization = MockSuiteSerialization<MockSuite>
+    typealias SerializationResult = MockSuiteSerializationResult<MockSuite>
+
+    public var mockSuiteCollection: MockSuiteCollection<MockSuite>? {
+        return serializationResult.mockSuiteCollection
     }
 
     public let isRunning: Bool
     public let urlSessionConfiguration: URLSessionConfiguration
 
-    let mockSuiteResult: MockSuiteResult
+    let serializationResult: SerializationResult
     
-    private static var isRunning: Bool {
+    private static var sessionIsRunning: Bool {
         return ProcessInfo.processInfo.arguments.contains(LaunchKeys.mimicIsRunning)
     }
     
-    public static var shared: Session<Serialization, Finder>? {
-        if !isRunning {
+    public static var shared: SharedSession? {
+        if !sessionIsRunning {
             return nil
         }
-        
-        if let session = savedSession as? Session<Serialization, Finder> {
+        if let session = savedSession as? SharedSession {
             return session
         }
-        
-        let urlSessionConfiguration = URLSessionConfiguration.ephemeral
-        urlSessionConfiguration.protocolClasses = [MIMURLProtocol<Serialization, Finder>.self]
 
-        let mockSuiteResult: MockSuiteSerializationResult<Serialization.MockSuite>
-        
-        if let mockSuiteAsText = ProcessInfo.processInfo.environment[LaunchKeys.mockSuite] {
+        let urlSessionConfiguration = URLSessionConfiguration.ephemeral
+        urlSessionConfiguration.protocolClasses = [MIMURLProtocol<Finder>.self]
+
+        let serializationResult: SerializationResult
+
+        if let mockSuiteCollectionAsText = ProcessInfo.processInfo.environment[LaunchKeys.mockSuiteCollection] {
             do {
-                let mockSuite = try Serialization.decode(mockSuiteAsText)
-                mockSuiteResult = .success(mockSuite)
+                let mockSuiteCollection = try Serialization.decode(mockSuiteCollectionAsText)
+                serializationResult = .success(mockSuiteCollection)
             } catch let error as Error {
-                mockSuiteResult = .failure(error)
+                serializationResult = .failure(error)
             } catch let err {
-                mockSuiteResult = .failure(.unknown(underlyingError: err))
+                serializationResult = .failure(.unknown(underlyingError: err))
             }
         } else {
-            mockSuiteResult = .failure(.emptyOrCorruptedMockSuite)
+            serializationResult = .failure(.mockSuite(.notFound(baseUrl: nil)))
         }
-        
-        let session = Session<Serialization, Finder>(
+        let session = SharedSession(
             urlSessionConfiguration: urlSessionConfiguration,
-            mockSuiteResult: mockSuiteResult
+            serializationResult: serializationResult
         )
-        
         savedSession = session
-        
+
         return session
     }
     
     private init(
         urlSessionConfiguration: URLSessionConfiguration,
-        mockSuiteResult: MockSuiteResult
+        serializationResult: SerializationResult
     ) {
         self.isRunning = true
         self.urlSessionConfiguration = urlSessionConfiguration
-        self.mockSuiteResult = mockSuiteResult
+        self.serializationResult = serializationResult
     }
 }
 
-public typealias MimicSession = Session<MIMMockSuiteSerialization, MIMMockFinder>
+public typealias MimicSession = Session<MIMMockFinder>
 
 protocol SessionStorable {
 }

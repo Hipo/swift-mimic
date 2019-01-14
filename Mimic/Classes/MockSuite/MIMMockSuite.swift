@@ -10,9 +10,17 @@ import Foundation
 open class MIMMockSuite: MockSuiteConvertible {
     public typealias MockRequest = MIMMockRequest
     
+    public let baseUrl: String
+    public let bundle: MockSuiteBundle
+    
     private var mockRequests: [MockRequest] = []
     
-    public required init() {
+    public required init(
+        baseUrl: String = "default",
+        bundle: MockSuiteBundle = "Mocks"
+    ) {
+        self.baseUrl = baseUrl
+        self.bundle = bundle
     }
     
     open subscript(request: URLRequest) -> MockRequest {

@@ -7,21 +7,19 @@
 
 import Foundation
 
-open class Launcher<Serialization: MockSuiteSerialization> {
-    open class func launch(
-        _ application: MimicUIApplication,
-        with mockSuite: Serialization.MockSuite
-    ) throws {
-        application.launchArguments += [LaunchKeys.mimicIsRunning]
-        application.launchEnvironment[LaunchKeys.mockSuite] = try Serialization.encode(mockSuite)
+open class Launcher<MockSuite: MockSuiteConvertible> {
+    open class func launch(_ application: MimicUIApplication, with mockSuites: [MockSuite]) throws {
+        let collection = try MockSuiteCollection(mockSuites: mockSuites)
         
+        application.launchArguments += [LaunchKeys.mimicIsRunning]
+        application.launchEnvironment[LaunchKeys.mockSuiteCollection] = try MockSuiteSerialization.encode(collection)
         application.launch()
     }
 }
 
-public typealias MimicLauncher = Launcher<MIMMockSuiteSerialization>
+public typealias MimicLauncher = Launcher<MIMMockSuite>
 
 enum LaunchKeys {
     static let mimicIsRunning = "com.hipo.mimic.launcher.isRunning"
-    static let mockSuite = "com.hipo.mimic.launcher.mockSuite"
+    static let mockSuiteCollection = "com.hipo.mimic.launcher.mockSuiteCollection"
 }

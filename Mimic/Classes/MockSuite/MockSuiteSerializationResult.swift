@@ -7,8 +7,10 @@
 
 import Foundation
 
-public enum MockSuiteSerializationResult<MockSuite: MockSuiteConvertible> {
-    case success(MockSuite)
+enum MockSuiteSerializationResult<MockSuite: MockSuiteConvertible> {
+    public typealias Collection = MockSuiteCollection<MockSuite>
+    
+    case success(Collection)
     case failure(Error)
 }
 
@@ -20,9 +22,9 @@ extension MockSuiteSerializationResult {
         return true
     }
     
-    var mockSuite: MockSuite? {
-        if case .success(let mockSuite) = self {
-            return mockSuite
+    var mockSuiteCollection: Collection? {
+        if case .success(let collection) = self {
+            return collection
         }
         return nil
     }

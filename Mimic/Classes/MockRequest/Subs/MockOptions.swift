@@ -21,10 +21,6 @@ extension MockOptions {
             return values.additionalPathComponents as? T
         case .mockDeattached:
             return values.mockDeattached as? T
-        case .enablesPathComponentForSuccessCode:
-            return values.enablesPathComponentForSuccessCode as? T
-        case .enablesPathComponentForFailureCode:
-            return values.enablesPathComponentForFailureCode as? T
         }
     }
 }
@@ -33,8 +29,6 @@ extension MockOptions {
     struct OptionValues: Codable {
         var additionalPathComponents: String?
         var mockDeattached: Bool?
-        var enablesPathComponentForSuccessCode: Bool?
-        var enablesPathComponentForFailureCode: Bool?
     }
 }
 
@@ -46,10 +40,6 @@ extension MockOptions {
         /// In order to by-pass mock finding step, instead returns an empty mock placeholder.
         /// Accepts a boolean value.
         case mockDeattached
-        /// In order to return a single mock for all success/failure cases.
-        /// Accepts a boolen value
-        case enablesPathComponentForSuccessCode
-        case enablesPathComponentForFailureCode
     }
 }
 
@@ -69,18 +59,9 @@ extension MockOptions: ExpressibleByDictionaryLiteral {
                 values.additionalPathComponents = theValue
 
                 isTypeConversionFailed = theValue == nil
-            case .mockDeattached,
-                 .enablesPathComponentForSuccessCode,
-                 .enablesPathComponentForFailureCode:
+            case .mockDeattached:
                 let theValue = value as? Bool
-                
-                if option == .mockDeattached {
-                    values.mockDeattached = theValue
-                } else if option == .enablesPathComponentForSuccessCode {
-                    values.enablesPathComponentForSuccessCode = theValue
-                } else if option == .enablesPathComponentForFailureCode {
-                    values.enablesPathComponentForFailureCode = theValue
-                }
+                values.mockDeattached = theValue
                 
                 isTypeConversionFailed = theValue == nil
             }
@@ -96,9 +77,7 @@ extension MockOptions: CustomStringConvertible {
     public var description: String {
         return [
             Option.additionalPathComponents,
-            Option.mockDeattached,
-            Option.enablesPathComponentForSuccessCode,
-            Option.enablesPathComponentForFailureCode
+            Option.mockDeattached
         ].reduce("") { (r, option) in
             let theValue: Any? = value(for: option)
             return theValue.map({ r + "\n\t\(option.rawValue): \($0)" }) ?? r

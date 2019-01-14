@@ -7,9 +7,36 @@
 
 import Foundation
 
-public protocol MockSuiteSerialization: AnyObject {
-    associatedtype MockSuite: MockSuiteConvertible
+class MockSuiteSerialization<MockSuite: MockSuiteConvertible> {
+    typealias Collection = MockSuiteCollection<MockSuite>
     
-    static func encode(_ mockSuite: MockSuite) throws -> String
-    static func decode(_ text: String) throws -> MockSuite
+    class func encode(_ collection: Collection) throws -> String {
+        let encoder = JSONEncoder()
+        
+        do {
+            let data = try encoder.encode(collection)
+            
+            if let dataString = String(data: data, encoding: .utf8) {
+                return dataString
+            }
+            
+            throw Error.serialization(.encodingToStringFailed)
+        } catch let error {
+            throw Error.serialization(.encodingToDataFailed(underlyingError: error))
+        }
+    }
+    
+    class func decode(_ string: String) throws -> Collection {
+        let decoder = JSONDecoder()
+        
+        do {
+            guard let data = string.data(using: .utf8) else {
+                throw Error.serialization(.decodingFromStringFailed)
+            }
+            
+            return try decoder.decode(Collection.self, from: data)
+        } catch let error {
+            throw Error.serialization(.decodingFromDataFailed(underlyingError: error))
+        }
+    }
 }
