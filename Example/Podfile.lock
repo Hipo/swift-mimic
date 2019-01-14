@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.8.0)
-  - swift-mimic (0.2.2)
+  - swift-mimic (0.2.3)
 
 DEPENDENCIES:
   - Alamofire
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
-  swift-mimic: 5148f9c88eab83a8674f1b960e3945af53de8983
+  swift-mimic: de429f6a326d0f1017501be41729bd33a9724ed4
 
 PODFILE CHECKSUM: 91fc149057507538d625d342300b17d54ee27623
 

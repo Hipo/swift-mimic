@@ -47,14 +47,10 @@ class MIMURLProtocol<
             )
             return
         }
+        
+        let mockRequest = mockSuite[request]
 
-        guard
-            let mockRequest = mockSuite[request],
-            let response = urlResponse(
-                with: mockRequest,
-                for: request
-            )
-        else {
+        guard let response = urlResponse(with: mockRequest, for: request) else {
             client?.urlProtocol(
                 self,
                 didFailWithError: Error.unidentifierUrl
