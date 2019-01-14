@@ -13,10 +13,10 @@ public enum Error {
     case noSession
 
     case serialization(Serialization)
+    case mockSuite(MockSuite)
+    case mock(Mock)
 
     case unidentifierUrl
-    case emptyOrCorruptedMockSuite
-    case emptyOrCorruptedMock(System?)
 
     case unknown(underlyingError: System?)
 }
@@ -27,6 +27,19 @@ extension Error {
         case encodingToStringFailed
         case decodingFromStringFailed
         case decodingFromDataFailed(underlyingError: System)
+    }
+    
+    public enum MockSuite {
+        case emptyOrCorrupted
+        case emptyBaseUrl(bundle: String)
+        case emptyBundle(baseUrl: String)
+        case multipleSameBaseUrl(bundles: String)
+        case notFound(baseUrl: String?)
+    }
+    
+    public enum Mock {
+        case notFound(path: String)
+        case emptyOrCorrupted(System?)
     }
 }
 
