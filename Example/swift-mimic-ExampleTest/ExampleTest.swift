@@ -23,9 +23,6 @@ class ExampleTest: XCTestCase {
         continueAfterFailure = false
 
         let suite = MIMMockSuite()
-        
-        let reposMock = MIMMockRequest(path: "/user/repos")
-        suite.append(reposMock)
 
         try? MimicLauncher.launch(app, with: suite)
     }
