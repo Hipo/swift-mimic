@@ -149,7 +149,9 @@ class ExampleTest: XCTestCase {
 
 ## Release History
 
-* 0.2.2 - Jan 13, 2019
+* 0.2.4 - Jan 14, 2019
+    * Add documentation
+* 0.2.3 - Jan 13, 2019
     * First stable release with complete sample project
 
 ## Credits
