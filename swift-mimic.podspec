@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'swift-mimic'
-  s.version          = '0.2.5'
+  s.version          = '0.3.0'
   s.summary          = 'UI testing framework for iOS projects that allows easy API mocking for localized and quick tests.'
   s.homepage         = 'https://github.com/hipo/swift-mimic'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }

@@ -166,6 +166,8 @@ Suites will be prioritized from the last element to the first element of array, 
 
 ## Release History
 
+* 0.3.0 - Jan 15, 2019
+    * Add auto-discovery and easier basic setup
 * 0.2.5 - Jan 14, 2019
     * Add documentation
 * 0.2.3 - Jan 13, 2019
