@@ -17,10 +17,10 @@ open class MIMMockSuite: MockSuiteConvertible {
     
     public required init(
         baseUrl: String = "default",
-        bundle: MockSuiteBundle = "Mocks"
+        bundleNames: MockSuiteBundle = "Mocks"
     ) {
         self.baseUrl = baseUrl
-        self.bundle = bundle
+        self.bundle = bundleNames
     }
     
     open subscript(request: URLRequest) -> MockRequest {
