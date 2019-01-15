@@ -130,7 +130,8 @@ Then we create a `MIMMockSuite` instance that points to the correct bundle in th
 
 Finally, we call `MimicLauncher` with the suite we just created, so it can include it in the configuration.
 
-You can create as many suites as you like, and pass them to the launcher in the order you would like them to be loaded in. Let's say you have a specific authentication case for a test suite, you could do the following to take advantage of the cascading nature of suites:
+You can create as many suites as you like, and pass them to the launcher in the order you would like them to be loaded in. 
+Let's say you have a specific authentication case for a test suite. If different base URLs are required for the case, you could do the following to take advantage of the cascading nature of suites:
 
 ```
 class ExampleTest: XCTestCase {
@@ -139,13 +140,29 @@ class ExampleTest: XCTestCase {
     
     override func setUp() {
         let suite = MIMMockSuite(baseURL: "https://my-service.com", mockBundleName: "Mocks")
-        let adminSuite = MIMMockSuite(baseURL: "https://my-service.com", mockBundleName: "AdminMocks")
+        let adminSuite = MIMMockSuite(baseURL: "https://my-second-service.com", mockBundleName: "AdminMocks")
 
         try? MimicLauncher.launch(app, with: [suite, adminSuite])
     }
 
 }
 ```
+If you have same base URL for both cases, you should use the following structure:
+
+```
+class ExampleTest: XCTestCase {
+
+    var app: XCUIApplication = XCUIApplication()
+
+    override func setUp() {
+        let suite = MIMMockSuite(baseURL: "https://my-service.com", mockBundleName: ["Mocks", "AdminMocks"])
+
+        try? MimicLauncher.launch(app, with: [suite])
+    }
+
+}
+```
+Suites will be prioritized from the last element to the first element of array, in descending order.
 
 ## Release History
 
