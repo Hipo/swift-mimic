@@ -15,7 +15,7 @@ public protocol MockSuiteConvertible: AnyObject, Codable {
 
     init(
         baseUrl: String,
-        bundle: MockSuiteBundle
+        bundleNames: MockSuiteBundle
     )
 
     subscript(request: URLRequest) -> MockRequest { get }

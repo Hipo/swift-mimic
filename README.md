@@ -116,7 +116,7 @@ class ExampleTest: XCTestCase {
     override func setUp() {
         continueAfterFailure = false
 
-        let suite = MIMMockSuite(baseURL: "https://my-service.com", mockBundleName: "Mocks")
+        let suite = MIMMockSuite(baseURL: "https://my-service.com", bundleNames: "Mocks")
 
         try? MimicLauncher.launch(app, with: [suite])
     }
@@ -139,8 +139,8 @@ class ExampleTest: XCTestCase {
     var app: XCUIApplication = XCUIApplication()
     
     override func setUp() {
-        let suite = MIMMockSuite(baseURL: "https://my-service.com", mockBundleName: "Mocks")
-        let adminSuite = MIMMockSuite(baseURL: "https://my-second-service.com", mockBundleName: "AdminMocks")
+        let suite = MIMMockSuite(baseURL: "https://my-service.com", bundleNames: "Mocks")
+        let adminSuite = MIMMockSuite(baseURL: "https://my-second-service.com", bundleNames: "AdminMocks")
 
         try? MimicLauncher.launch(app, with: [suite, adminSuite])
     }
@@ -155,7 +155,7 @@ class ExampleTest: XCTestCase {
     var app: XCUIApplication = XCUIApplication()
 
     override func setUp() {
-        let suite = MIMMockSuite(baseURL: "https://my-service.com", mockBundleName: ["Mocks", "AdminMocks"])
+        let suite = MIMMockSuite(baseURL: "https://my-service.com", bundleNames: ["Mocks", "AdminMocks"])
 
         try? MimicLauncher.launch(app, with: [suite])
     }

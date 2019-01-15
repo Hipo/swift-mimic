@@ -22,8 +22,8 @@ class ExampleTest: XCTestCase {
     override func setUp() {
         continueAfterFailure = false
 
-        let suite = MIMMockSuite(baseUrl: "https://api.github.com", bundle: "Github_Mock_Bundle")
-
+        let suite = MIMMockSuite(baseUrl: "https://api.github.com", bundleNames: "Github_Mock_Bundle")
+        
         try? MimicLauncher.launch(app, with: [suite])
     }
 
